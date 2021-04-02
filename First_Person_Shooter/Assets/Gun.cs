@@ -39,8 +39,12 @@ private float nextTimeToFire = 0f;
             {
                 target.TakeDamage(damage);
             }
-         
-          GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            enemycontroller target1 = hit.transform.GetComponent<enemycontroller>();
+            if (target1 != null)
+            {
+                target1.TakeDamage(damage);
+            }
+            GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
           Destroy(impactGO, 2f);
         }
     }

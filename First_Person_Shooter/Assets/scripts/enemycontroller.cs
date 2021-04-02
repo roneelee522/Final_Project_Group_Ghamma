@@ -11,7 +11,9 @@ public class enemycontroller : MonoBehaviour
     public Transform playerDistance;
     public GameObject enemyExplosion;
     public float explosionRange;
-  
+    public float health;
+    CapsuleCollider enemyCol;
+
 
 
 
@@ -19,6 +21,7 @@ public class enemycontroller : MonoBehaviour
     void Start()
     {
         nav = GetComponent<NavMeshAgent>();
+        enemyCol = GetComponent<CapsuleCollider>();
     }
 
     // Update is called once per frame
@@ -38,8 +41,22 @@ public class enemycontroller : MonoBehaviour
 
     void Explode()
     {
+        enemyCol.radius = 5.0f;
+        Instantiate(enemyExplosion, transform.position, transform.rotation);
+        Destroy(gameObject, 0.2f);
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        if (health <= 0) Invoke(nameof(Death), 0.5f);
+    }
+
+    private void Death()
+    {
         Instantiate(enemyExplosion, transform.position, transform.rotation);
         Destroy(gameObject);
     }
+
 }
 

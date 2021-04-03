@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
     public float speed = 12f;
-
     public AudioSource audioSource;
     public AudioClip jumpSound, pickUpSound;
     public float gravity = -9.81f;
@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
     private int redKey, yellowKey, blueKey;
     public GameObject key1, key2, key3;
+    public TMP_Text directiveText;
     void Start()
     {
         speed = 7f;
@@ -31,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
         staminaBarShift.maxValue = maxStamina;
         staminaBarShift.value = maxStamina;
         redKey = 0; blueKey = 0; yellowKey = 0;
+        directiveText.text = "Find all KeyCards to Escape";
     }
         void Awake()
         {
@@ -99,6 +101,10 @@ public class PlayerMovement : MonoBehaviour
             key3.SetActive(false);
    velocity.y += gravity * Time.deltaTime;
    controller.Move(velocity * Time.deltaTime);
+   if(redKey == 1 && blueKey == 1 && yellowKey == 1)
+        {
+            directiveText.text = "Find the Exit";
+        }
 
     }
     public void UseStamina(float amount)
@@ -160,12 +166,17 @@ public class PlayerMovement : MonoBehaviour
             if(redKey == 1 && blueKey == 1 && yellowKey == 1)
             {
                 Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
                 SceneManager.LoadScene("WinScreen");
             }
             else
                 {
-                Debug.Log("this Works");
+                directiveText.text = "Find all the KeyCards!";
             }
         }
+    }
+    void OnTriggerExit(Collider collision)
+    {
+        directiveText.text = "Find all KeyCards to Escape";
     }
 }

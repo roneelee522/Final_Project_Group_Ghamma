@@ -1285,7 +1285,9 @@ MonoBehaviour:
 
     Sprint
 
-    Shoot '
+    Shoot
+
+    Jump'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1354,12 +1356,12 @@ MonoBehaviour:
   m_margin: {x: -231.66565, y: 0, z: -1500.4971, w: 0}
   m_textInfo:
     textComponent: {fileID: 357819005}
-    characterCount: 61
+    characterCount: 65
     spriteCount: 0
     spaceCount: 10
-    wordCount: 10
+    wordCount: 11
     linkCount: 0
-    lineCount: 6
+    lineCount: 7
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -2416,6 +2418,8 @@ MonoBehaviour:
 
     Left-Click
 
+    Space
+
 
 '
   m_isRightToLeft: 0
@@ -2486,12 +2490,12 @@ MonoBehaviour:
   m_margin: {x: -231.66565, y: 0, z: -1500.4971, w: 0}
   m_textInfo:
     textComponent: {fileID: 945423606}
-    characterCount: 26
+    characterCount: 32
     spriteCount: 0
-    spaceCount: 7
-    wordCount: 6
+    spaceCount: 8
+    wordCount: 7
     linkCount: 0
-    lineCount: 7
+    lineCount: 8
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0

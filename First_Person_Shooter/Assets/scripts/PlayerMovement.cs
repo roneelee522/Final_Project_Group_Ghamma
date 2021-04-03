@@ -64,23 +64,7 @@ public class PlayerMovement : MonoBehaviour
        PlaySound(jumpSound);
        velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
    }
-   if (currentStamina > 0.011f)
-        {
-            if(Input.GetKey(KeyCode.LeftShift))
-            {
-                UseStamina(0.011f);
-                speed = 14f;
-            }
-            else
-            {
-                speed = 7f;
-            }
-        }
-        else if (currentStamina < 0.011f)
-        {
-            staminaBarShift.value = currentStamina;
-            speed = 7f;
-        }
+   
     if(redKey == 1)
         {
             key1.SetActive(true);
@@ -106,6 +90,26 @@ public class PlayerMovement : MonoBehaviour
             directiveText.text = "Find the Exit";
         }
 
+    }
+    void FixedUpdate()
+    {
+        if (currentStamina > 0.30f)
+        {
+            if(Input.GetKey(KeyCode.LeftShift))
+            {
+                UseStamina(0.30f);
+                speed = 14f;
+            }
+            else
+            {
+                speed = 7f;
+            }
+        }
+        else if (currentStamina < 0.30f)
+        {
+            staminaBarShift.value = currentStamina;
+            speed = 7f;
+        }
     }
     public void UseStamina(float amount)
     {

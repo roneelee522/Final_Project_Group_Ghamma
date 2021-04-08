@@ -1442,7 +1442,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: THE MARTIAN SHOOTER
+  m_text: THE MARTIAN SLAYER
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 201a1fce8f6ee524dab17671743fc041, type: 2}
   m_sharedMaterial: {fileID: -2981417089389349443, guid: 201a1fce8f6ee524dab17671743fc041,
@@ -1512,7 +1512,7 @@ MonoBehaviour:
   m_margin: {x: -231.66565, y: 0, z: -1500.4971, w: 0}
   m_textInfo:
     textComponent: {fileID: 624965307}
-    characterCount: 19
+    characterCount: 18
     spriteCount: 0
     spaceCount: 2
     wordCount: 3
@@ -3823,7 +3823,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: THE MARTIAN SHOOTER
+  m_text: THE MARTIAN SLAYER
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 201a1fce8f6ee524dab17671743fc041, type: 2}
   m_sharedMaterial: {fileID: -2981417089389349443, guid: 201a1fce8f6ee524dab17671743fc041,

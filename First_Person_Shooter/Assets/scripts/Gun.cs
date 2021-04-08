@@ -1,6 +1,8 @@
 ﻿
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+using TMPro;
 
 public class Gun : MonoBehaviour
 {
@@ -8,40 +10,39 @@ public float damage = 10f;
 public float range = 100f;
 public float fireRate = 15f;
 
-public AudioClip shootSound;
+public AudioClip shootSound, reloadSound;
 public AudioSource audioSource;
-
-public int maxAmmo = 10;
-private int currentAmmo;
 public float reloadTime = 1f;
-
 private bool isReloading = false;
-    public Camera fpsCam;
+public Camera fpsCam;
 public ParticleSystem ShotFlash;
 public GameObject impactEffect;
 private float nextTimeToFire = 0f;
-public Animator animator;
+//public Animator animator;
+public int maxAmmo = 10;
+public int ammo;
+public TMP_Text ammoDisplay;
+
     void Start ()
     {
-        currentAmmo = maxAmmo;
+        ammo = maxAmmo;
     }
     void OnEnable ()
     {
         isReloading = false;
-        animator.SetBool("Reloading", false);
+        //animator.SetBool("Reloading", false);
     }
     void Update()
     {
 if (isReloading)
 return;
 
-if (currentAmmo <= 0)
-{
-    StartCoroutine(Reload());
-    return;
-}
-
-        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+    if (ammo <= 0 && Input.GetKey(KeyCode.R))
+        {
+            StartCoroutine(Reload());
+            return;
+        }
+        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire && ammo > 0)
         {
             nextTimeToFire = Time.time + 1f/fireRate;
             PlaySound(shootSound);
@@ -56,19 +57,22 @@ if (currentAmmo <= 0)
     IEnumerator Reload ()
     {
         isReloading = true;
+        PlaySound(reloadSound);
         Debug.Log("Reloading...");
-        animator.SetBool("Reloading", true);
+        //animator.SetBool("Reloading", true);
         yield return new WaitForSeconds(reloadTime -.25f);
-        animator.SetBool("Reloading", false);
+        //animator.SetBool("Reloading", false);
         yield return new WaitForSeconds(.25f);
-        currentAmmo = maxAmmo;
+        ammo = maxAmmo;
+        ammoDisplay.text = ammo.ToString("");
         isReloading = false;
     }
     void Shoot ()
     {
 
-        ShotFlash.Play();   
-        currentAmmo--;     
+        ShotFlash.Play();
+        ammo--;
+        ammoDisplay.text = ammo.ToString();
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {

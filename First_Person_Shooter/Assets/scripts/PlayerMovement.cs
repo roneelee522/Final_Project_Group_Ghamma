@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float currentStamina;
     private Coroutine regen;
     Vector3 velocity;
+    private bool isMoving;
     bool isGrounded;
     private int redKey, yellowKey, blueKey;
     public GameObject key1, key2, key3;
@@ -54,11 +55,19 @@ public class PlayerMovement : MonoBehaviour
         }
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
+        
+        if(z !=0)
+        {
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
+        }
 
-  Vector3 move = transform.right * x + transform.forward * z;
+        Vector3 move = transform.right * x + transform.forward * z;
 
    controller.Move(move * speed * Time.deltaTime);
-
    if(Input.GetButtonDown("Jump") && isGrounded)
    {
        PlaySound(jumpSound);
@@ -95,7 +104,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (currentStamina > 0.30f)
         {
-            if(Input.GetKey(KeyCode.LeftShift))
+            if(Input.GetKey(KeyCode.LeftShift)&& isMoving == true)
             {
                 UseStamina(0.30f);
                 speed = 14f;

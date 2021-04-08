@@ -11,6 +11,8 @@ TagManager:
   - ExitDoor
   - Bullet
   - Enemy
+  - JumpPAd
+  - JumpPad
   layers:
   - Default
   - TransparentFX

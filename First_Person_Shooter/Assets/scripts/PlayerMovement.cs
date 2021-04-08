@@ -280,10 +280,19 @@ public class PlayerMovement : MonoBehaviour
                 directiveText.text = "Find all the KeyCards!";
             }
         }
+        if (collision.gameObject.tag == "JumpPad")
+        {
+            jumpHeight = 25f;
+        }
     }
     void OnTriggerExit(Collider collision)
     {
         directiveText.text = "Find all KeyCards to Escape";
+
+        if (collision.gameObject.tag == "JumpPad")
+        {
+            jumpHeight = 3f;
+        }
     }
      void OnCollisionEnter(Collision collider)
     {
@@ -292,5 +301,6 @@ public class PlayerMovement : MonoBehaviour
             health -= 1;
             Debug.Log("Hi There");
         }
+      
     }
 }

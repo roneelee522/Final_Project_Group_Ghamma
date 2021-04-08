@@ -8,6 +8,7 @@ public class EnemyScript : MonoBehaviour
 
     public NavMeshAgent agent;
     public Transform player;
+    public Transform shotPoint;
     public LayerMask whatIsGround, whatIsPlayer;
     public float health;
 
@@ -89,10 +90,10 @@ public class EnemyScript : MonoBehaviour
         if(!alreadyAttacked)
         {
             //Attack
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+            //Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            Instantiate(projectile, shotPoint.position, shotPoint.rotation);
+            //rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
+            //rb.AddForce(transform.up * 8f, ForceMode.Impulse);
 
             ///
             alreadyAttacked = true;

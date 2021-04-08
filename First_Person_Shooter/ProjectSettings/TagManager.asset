@@ -10,6 +10,7 @@ TagManager:
   - yellowKey
   - ExitDoor
   - Bullet
+  - Enemy
   layers:
   - Default
   - TransparentFX

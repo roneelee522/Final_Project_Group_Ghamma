@@ -24,10 +24,12 @@ public class PlayerMovement : MonoBehaviour
     private bool isMoving;
     bool isGrounded;
     private int redKey, yellowKey, blueKey;
-    public GameObject key1, key2, key3;
+    public GameObject key1, key2, key3, bar1, bar2, bar3, bar4, bar5, bar6, bar7;
+    public int health;
     public TMP_Text directiveText;
     void Start()
     {
+        health = 7;
         speed = 7f;
         currentStamina = maxStamina;
         staminaBarShift.maxValue = maxStamina;
@@ -40,6 +42,13 @@ public class PlayerMovement : MonoBehaviour
             key1 = GameObject.Find("redKey");
             key2 = GameObject.Find("blueKey");
             key3 = GameObject.Find("yellowKey");
+            bar1 = GameObject.Find("GreenBar1");
+            bar2 = GameObject.Find("GreenBar2");
+            bar3 = GameObject.Find("GreenBar3");
+            bar4 = GameObject.Find("YellowBar1");
+            bar5 = GameObject.Find("YellowBar2");
+            bar6 = GameObject.Find("RedBar1");
+            bar7 = GameObject.Find("RedBar2");
         }
 
      public void PlaySound(AudioClip clip)
@@ -98,7 +107,91 @@ public class PlayerMovement : MonoBehaviour
         {
             directiveText.text = "Find the Exit";
         }
-
+    if (health == 0)
+        {
+            SceneManager.LoadScene("LoseScreen");
+        }
+        if (health == 0)
+        {
+            bar1.SetActive(false);
+            bar2.SetActive(false);
+            bar3.SetActive(false);
+            bar4.SetActive(false);
+            bar5.SetActive(false);
+            bar6.SetActive(false);
+            bar7.SetActive(false);
+        }
+        if (health == 1)
+        {
+            bar1.SetActive(false);
+            bar2.SetActive(false);
+            bar3.SetActive(false);
+            bar4.SetActive(false);
+            bar5.SetActive(false);
+            bar6.SetActive(false);
+            bar7.SetActive(true);
+        }
+        if (health == 2)
+        {
+            bar1.SetActive(false);
+            bar2.SetActive(false);
+            bar3.SetActive(false);
+            bar4.SetActive(false);
+            bar5.SetActive(false);
+            bar6.SetActive(true);
+            bar7.SetActive(true);
+        }
+        if (health == 3)
+        {
+            bar1.SetActive(false);
+            bar2.SetActive(false);
+            bar3.SetActive(false);
+            bar4.SetActive(false);
+            bar5.SetActive(true);
+            bar6.SetActive(true);
+            bar7.SetActive(true);
+        }
+        if (health == 4)
+        {
+            bar1.SetActive(false);
+            bar2.SetActive(false);
+            bar3.SetActive(false);
+            bar4.SetActive(true);
+            bar5.SetActive(true);
+            bar6.SetActive(true);
+            bar7.SetActive(true);
+        }
+        if (health == 5)
+        {
+            bar1.SetActive(false);
+            bar2.SetActive(false);
+            bar3.SetActive(true);
+            bar4.SetActive(true);
+            bar5.SetActive(true);
+            bar6.SetActive(true);
+            bar7.SetActive(true);
+        }
+        if (health == 6)
+        {
+            bar1.SetActive(false);
+            bar2.SetActive(true);
+            bar3.SetActive(true);
+            bar4.SetActive(true);
+            bar5.SetActive(true);
+            bar6.SetActive(true);
+            bar7.SetActive(true);
+            Debug.Log("Taking Hit");
+        }
+        if (health == 7)
+        {
+            bar1.SetActive(true);
+            bar2.SetActive(true);
+            bar3.SetActive(true);
+            bar4.SetActive(true);
+            bar5.SetActive(true);
+            bar6.SetActive(true);
+            bar7.SetActive(true);
+        }
     }
     void FixedUpdate()
     {
@@ -191,5 +284,13 @@ public class PlayerMovement : MonoBehaviour
     void OnTriggerExit(Collider collision)
     {
         directiveText.text = "Find all KeyCards to Escape";
+    }
+     void OnCollisionEnter(Collision collider)
+    {
+        if(collider.gameObject.tag == "Bullet")
+        {
+            health -= 1;
+            Debug.Log("Hi There");
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿
 using UnityEngine;
+using System.Collections;
 
 public class Gun : MonoBehaviour
 {
@@ -9,12 +10,37 @@ public float fireRate = 15f;
 
 public AudioClip shootSound;
 public AudioSource audioSource;
+
+public int maxAmmo = 10;
+private int currentAmmo;
+public float reloadTime = 1f;
+
+private bool isReloading = false;
     public Camera fpsCam;
 public ParticleSystem ShotFlash;
 public GameObject impactEffect;
 private float nextTimeToFire = 0f;
+public Animator animator;
+    void Start ()
+    {
+        currentAmmo = maxAmmo;
+    }
+    void OnEnable ()
+    {
+        isReloading = false;
+        animator.SetBool("Reloading", false);
+    }
     void Update()
     {
+if (isReloading)
+return;
+
+if (currentAmmo <= 0)
+{
+    StartCoroutine(Reload());
+    return;
+}
+
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1f/fireRate;
@@ -26,10 +52,23 @@ private float nextTimeToFire = 0f;
     {
         audioSource.PlayOneShot(clip);
     }
+    
+    IEnumerator Reload ()
+    {
+        isReloading = true;
+        Debug.Log("Reloading...");
+        animator.SetBool("Reloading", true);
+        yield return new WaitForSeconds(reloadTime -.25f);
+        animator.SetBool("Reloading", false);
+        yield return new WaitForSeconds(.25f);
+        currentAmmo = maxAmmo;
+        isReloading = false;
+    }
     void Shoot ()
     {
 
-        ShotFlash.Play();        
+        ShotFlash.Play();   
+        currentAmmo--;     
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {

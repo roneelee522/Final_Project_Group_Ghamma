@@ -10352,6 +10352,7 @@ GameObject:
   - component: {fileID: 1131684740}
   - component: {fileID: 1131684743}
   - component: {fileID: 1131684744}
+  - component: {fileID: 1131684742}
   m_Layer: 10
   m_Name: Machine Gun
   m_TagString: Untagged
@@ -10426,6 +10427,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!95 &1131684742
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131684738}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fd06cf60005c7c748b24bd0097b6d811, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1131684743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10449,6 +10469,7 @@ MonoBehaviour:
   ShotFlash: {fileID: 5435595586558364019}
   impactEffect: {fileID: 4430929438360301236, guid: 915ff74ff8423ec48b2ff68a7f7a3295,
     type: 3}
+  animator: {fileID: 1131684742}
   maxAmmo: 10
   ammo: 0
   ammoDisplay: {fileID: 1896953385}
@@ -12538,6 +12559,7 @@ GameObject:
   - component: {fileID: 1360022475}
   - component: {fileID: 1360022476}
   - component: {fileID: 1360022477}
+  - component: {fileID: 1360022478}
   m_Layer: 10
   m_Name: Pistol
   m_TagString: Untagged
@@ -12584,6 +12606,7 @@ MonoBehaviour:
   ShotFlash: {fileID: 1941928441}
   impactEffect: {fileID: 1000011945391522, guid: 78b71003e8b357d4bbf89c8b5e5e4f0e,
     type: 3}
+  animator: {fileID: 1360022478}
   maxAmmo: 10
   ammo: 0
   ammoDisplay: {fileID: 1896953385}
@@ -12683,6 +12706,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &1360022478
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360022474}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fd06cf60005c7c748b24bd0097b6d811, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1360427464
 GameObject:
   m_ObjectHideFlags: 0

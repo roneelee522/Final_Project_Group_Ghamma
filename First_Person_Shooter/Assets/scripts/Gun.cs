@@ -18,7 +18,7 @@ public Camera fpsCam;
 public ParticleSystem ShotFlash;
 public GameObject impactEffect;
 private float nextTimeToFire = 0f;
-//public Animator animator;
+public Animator animator;
 public int maxAmmo = 10;
 public int ammo;
 public TMP_Text ammoDisplay;
@@ -30,7 +30,7 @@ public TMP_Text ammoDisplay;
     void OnEnable ()
     {
         isReloading = false;
-        //animator.SetBool("Reloading", false);
+        animator.SetBool("Reloading", false);
     }
     void Update()
     {
@@ -59,9 +59,9 @@ return;
         isReloading = true;
         PlaySound(reloadSound);
         Debug.Log("Reloading...");
-        //animator.SetBool("Reloading", true);
+        animator.SetBool("Reloading", true);
         yield return new WaitForSeconds(reloadTime -.25f);
-        //animator.SetBool("Reloading", false);
+        animator.SetBool("Reloading", false);
         yield return new WaitForSeconds(.25f);
         ammo = maxAmmo;
         ammoDisplay.text = ammo.ToString("");

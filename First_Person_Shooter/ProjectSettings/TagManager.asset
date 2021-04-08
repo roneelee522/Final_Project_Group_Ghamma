@@ -9,6 +9,7 @@ TagManager:
   - blueKey
   - yellowKey
   - ExitDoor
+  - Bullet
   layers:
   - Default
   - TransparentFX

@@ -20,24 +20,13 @@ public class bullettime : MonoBehaviour
         Destroy(gameObject, 2.0f);
         rb.AddForce(transform.forward * speed);
         rb.AddForce(transform.up * 2f, ForceMode.Impulse);
-
-            if (collider.CompareTag("Enemy"))
-            {
-                Debug.Log("Enemy hit");
-                DestroyProjectile();
-                col.GetComponent<EnemyController>().TakeDamage(damage);
-            }
     }
 
-    void OnCollisionEnter(Collider col)
+    void OnCollisionEnter(Collision collision)
     {
-        if (col.gameObject.tag == "Player"){
-        Debug.Log("Hi there");
-        }
-
-        if(col.CompareTag("Player"))
+        if (collision.gameObject.tag == "Player")
         {
-            col.GetComponent<PlayerHealth>().TakeDamage(damage);
+            Destroy(gameObject);
         }
     }
 }

@@ -8,7 +8,7 @@ public class PlayerHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        health = 10;
     }
 
     // Update is called once per frame
@@ -16,12 +16,17 @@ public class PlayerHealth : MonoBehaviour
     {
         if (health <= 0) 
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            Debug.Log("You died");
         }
     }
-    public void TakeDamage(int damage) 
+
+    void OnCollisionEnter(Collision col)
     {
-        health -= damage;
-        Debug.Log("Taken Damage");
+        if(col.gameObject.tag == "Bullet")
+        {
+            health = health - 1; 
+            Debug.Log("Hi There");
+        }
     }
 }

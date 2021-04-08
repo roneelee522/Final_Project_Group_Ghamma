@@ -7,6 +7,7 @@ public class Eyeball : MonoBehaviour
 {
     // Start is called before the first frame update
     public Transform player;
+    public Transform shotPoint;
     public NavMeshAgent agent;
     public LayerMask whatIsPlayer;
     public float health;
@@ -58,8 +59,7 @@ public class Eyeball : MonoBehaviour
             //rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
             //rb.AddForce(transform.up * 8f, ForceMode.Impulse);
 
-            GameObject shot = GameObject.Instantiate(projectile, transform.position, transform.rotation);
-            shot.GetComponent<Rigidbody>().AddForce(transform.forward);
+            Instantiate(projectile, shotPoint.position, shotPoint.rotation);
 
             ///
             alreadyAttacked = true;

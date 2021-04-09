@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private Coroutine regen;
     Vector3 velocity;
     private bool isMoving;
+    public AudioSource moving;
     bool isGrounded;
     private int redKey, yellowKey, blueKey;
     public GameObject key1, key2, key3, bar1, bar2, bar3, bar4, bar5, bar6, bar7;
@@ -73,6 +74,13 @@ public class PlayerMovement : MonoBehaviour
         {
             isMoving = false;
         }
+        if (isMoving && isGrounded)
+            {
+                if(!moving.isPlaying)
+                moving.Play();
+            }
+            else 
+                moving.Stop();
 
         Vector3 move = transform.right * x + transform.forward * z;
 
@@ -109,6 +117,8 @@ public class PlayerMovement : MonoBehaviour
         }
     if (health == 0)
         {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene("LoseScreen");
         }
         if (health == 0)
@@ -265,6 +275,14 @@ public class PlayerMovement : MonoBehaviour
                 yellowKey += 1;
                 Destroy(collision.gameObject);
                 PlaySound(pickUpSound);
+            }
+        }
+        if(collision.gameObject.tag =="HealthPickUp")
+        {
+           if (health < 7)
+                {
+                health += 1;
+                Destroy(collision.gameObject);
             }
         }
         if(collision.gameObject.tag == "ExitDoor")

@@ -15,6 +15,7 @@ TagManager:
   - JumpPad
   - SelfExplode
   - Explosion
+  - HealthPickUp
   layers:
   - Default
   - TransparentFX

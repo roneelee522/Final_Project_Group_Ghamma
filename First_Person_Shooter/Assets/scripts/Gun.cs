@@ -1,11 +1,15 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using TMPro;
 
 public class Gun : MonoBehaviour
 {
+    public int pistolAmmo;
+    public int pistolinvAmmo;
+
+      public int machineAmmo;
+    public int machineinvAmmo;
 public Weapon_Switcher script;
 public float damage = 10f;
 public float range = 100f;
@@ -22,11 +26,16 @@ private float nextTimeToFire = 0f;
 public Animator animator;
 public int maxmagAmmo = 10;
 public int ammo;
-public TMP_Text ammoDisplay;
+public TMP_Text currentAmmoText;
+public TMP_Text invAmmoText;
 
     void Start ()
     {
         ammo = maxmagAmmo;
+        pistolAmmo = 10;
+        pistolinvAmmo = 40;
+        machineAmmo = 35;
+        machineinvAmmo = 70;
     
     }
     void OnEnable ()
@@ -38,20 +47,41 @@ public TMP_Text ammoDisplay;
     {
 if (isReloading)
 return;
+if (script.selectedWeapon == 0)
+{
+    currentAmmoText.text = pistolAmmo.ToString ();
+    invAmmoText.text = pistolinvAmmo.ToString ();
 
-    if (ammo <= 0 && Input.GetKey(KeyCode.R))
+}
+
+if (script.selectedWeapon == 1)
+{
+    currentAmmoText.text = machineAmmo.ToString ();
+    invAmmoText.text = machineinvAmmo.ToString ();
+
+}
+
+ if (Input.GetKey(KeyCode.R) && script.selectedWeapon == 0 && pistolinvAmmo > 0)
         {
-            StartCoroutine(Reload());
+            StartCoroutine(Reloadpistol());
             return;
         }
+        if (Input.GetKey(KeyCode.R) && script.selectedWeapon == 1 && machineinvAmmo > 0)
+        {
+            StartCoroutine(Reloadmachine());
+            return;
+        }
+
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire && ammo > 0 && script.selectedWeapon == 0)
         {
+            pistolAmmo --;
             nextTimeToFire = Time.time + 1f/fireRate;
             PlaySound(shootSound);
             Shootpistol();
         }
           if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire && ammo > 0 && script.selectedWeapon == 1)
         {
+            machineAmmo --;
             nextTimeToFire = Time.time + 1f/fireRate;
             PlaySound(shootSound);
             Shootmachine();
@@ -63,7 +93,7 @@ return;
         audioSource.PlayOneShot(clip);
     }
     
-    IEnumerator Reload ()
+    IEnumerator Reloadpistol ()
     {
         isReloading = true;
         PlaySound(reloadSound);
@@ -72,8 +102,44 @@ return;
         yield return new WaitForSeconds(reloadTime -.25f);
         animator.SetBool("Reloading", false);
         yield return new WaitForSeconds(.25f);
+        var shot = maxmagAmmo - pistolAmmo;
+        if(pistolinvAmmo < shot)
+        {
+            pistolAmmo += shot;
+            pistolinvAmmo = 0;
+        }
+        else
+        {
+pistolAmmo += shot;
+pistolinvAmmo -= shot;
+        }
         ammo = maxmagAmmo;
-        ammoDisplay.text = ammo.ToString("");
+
+        isReloading = false;
+    }
+
+      IEnumerator Reloadmachine ()
+    {
+        isReloading = true;
+        PlaySound(reloadSound);
+        Debug.Log("Reloading...");
+        animator.SetBool("Reloading", true);
+        yield return new WaitForSeconds(reloadTime -.25f);
+        animator.SetBool("Reloading", false);
+        yield return new WaitForSeconds(.25f);
+        var shot = maxmagAmmo - machineAmmo;
+        if(machineinvAmmo < shot)
+        {
+            machineAmmo += shot;
+            machineAmmo = 0;
+        }
+        else
+        {
+machineAmmo += shot;
+machineinvAmmo -= shot;
+        }
+        ammo = maxmagAmmo;
+
         isReloading = false;
     }
     void Shoot ()
@@ -81,7 +147,7 @@ return;
 
         ShotFlash.Play();
         ammo--;
-        ammoDisplay.text = ammo.ToString();
+    
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
@@ -105,7 +171,7 @@ void Shootpistol ()
 
         ShotFlash.Play();
         ammo--;
-        ammoDisplay.text = ammo.ToString();
+
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
@@ -129,7 +195,7 @@ void Shootmachine ()
 
         ShotFlash.Play();
         ammo--;
-        ammoDisplay.text = ammo.ToString();
+ 
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
@@ -150,3 +216,4 @@ void Shootmachine ()
     }
 
 }
+

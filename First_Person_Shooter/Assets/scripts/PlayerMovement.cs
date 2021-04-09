@@ -284,6 +284,11 @@ public class PlayerMovement : MonoBehaviour
         {
             jumpHeight = 25f;
         }
+        if (collision.gameObject.tag == "Explosion")
+        {
+            health = health - 2;
+            Debug.Log("Bomb");
+        }
     }
     void OnTriggerExit(Collider collision)
     {
@@ -302,5 +307,6 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Hi There");
         }
       
+
     }
 }

@@ -13,6 +13,8 @@ TagManager:
   - Enemy
   - JumpPAd
   - JumpPad
+  - SelfExplode
+  - Explosion
   layers:
   - Default
   - TransparentFX

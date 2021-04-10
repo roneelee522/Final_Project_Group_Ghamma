@@ -8,6 +8,8 @@ public class PauseMenu : MonoBehaviour {
     public static bool gamePaused = false;
     public GameObject pauseMenu;
     public GameObject player;
+    public AudioSource audioSource;
+    public AudioSource pauseMusic;
 
     public GameObject guns;
 
@@ -31,9 +33,11 @@ public class PauseMenu : MonoBehaviour {
         pauseMenu.SetActive (false);
         Time.timeScale = 1f;
         gamePaused = false;
+        audioSource.Play();
         player.gameObject.SetActive(true);
         guns.gameObject.SetActive(true);
         Cursor.visible = false;
+        pauseMusic.Stop();
     }
     public void PauseGame () {
         pauseMenu.SetActive (true);
@@ -41,8 +45,10 @@ public class PauseMenu : MonoBehaviour {
         player.gameObject.SetActive(false);
         guns.gameObject.SetActive(false);
         gamePaused = true;
+        audioSource.Pause();
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        pauseMusic.Play();
     }
     public void quitgame () {
         Application.Quit ();

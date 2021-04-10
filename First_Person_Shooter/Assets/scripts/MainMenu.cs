@@ -16,7 +16,11 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
         Debug.Log("Quit");
     }
-    public void LoadScene(string SampleScene)
+    public void LoadScene(string NarrativeScene)
+    {
+        SceneManager.LoadScene("NarrativeScene");
+    }
+    public void LoadGame(string SampleScene)
     {
         SceneManager.LoadScene("SampleScene");
     }

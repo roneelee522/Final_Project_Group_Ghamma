@@ -16,6 +16,7 @@ TagManager:
   - SelfExplode
   - Explosion
   - HealthPickUp
+  - PistolAmmo
   layers:
   - Default
   - TransparentFX

@@ -237,6 +237,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1709397441}
   player: {fileID: 1709397441}
+  audioSource: {fileID: 0}
+  pauseMusic: {fileID: 0}
+  guns: {fileID: 0}
 --- !u!114 &47224189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1609,8 +1612,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d4f7b11328d893d49b49b1106dc8de3f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: -0.7
+  m_Volume: 0.2
+  m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0

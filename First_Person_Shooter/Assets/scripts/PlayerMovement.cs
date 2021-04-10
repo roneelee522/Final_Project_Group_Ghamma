@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController controller;
     public float speed = 12f;
     public AudioSource audioSource;
-    public AudioClip jumpSound, pickUpSound;
+    public AudioClip jumpSound, pickUpSound, healthSound, hurtSound, crateSound,jumpPadSound;
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
     public Transform groundCheck;
@@ -87,8 +87,8 @@ public class PlayerMovement : MonoBehaviour
    controller.Move(move * speed * Time.deltaTime);
    if(Input.GetButtonDown("Jump") && isGrounded)
    {
-       PlaySound(jumpSound);
-       velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            PlaySound(jumpSound);
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
    }
    
     if(redKey == 1)
@@ -282,6 +282,7 @@ public class PlayerMovement : MonoBehaviour
            if (health < 7)
                 {
                 health += 1;
+                PlaySound(healthSound);
                 Destroy(collision.gameObject);
             }
         }
@@ -304,8 +305,13 @@ public class PlayerMovement : MonoBehaviour
         }
         if (collision.gameObject.tag == "Explosion")
         {
-            health = health - 2;
+            health = health - 1;
+            PlaySound(hurtSound);
             Debug.Log("Bomb");
+        }
+        if(collision.gameObject.tag =="PistolAmmo")
+        {
+            PlaySound(crateSound);
         }
     }
     void OnTriggerExit(Collider collision)
@@ -315,6 +321,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "JumpPad")
         {
             jumpHeight = 3f;
+            PlaySound(jumpPadSound);
         }
     }
      void OnCollisionEnter(Collision collider)
@@ -323,6 +330,7 @@ public class PlayerMovement : MonoBehaviour
         {
             health -= 1;
             Debug.Log("Hi There");
+            PlaySound(hurtSound);
         }
       
 

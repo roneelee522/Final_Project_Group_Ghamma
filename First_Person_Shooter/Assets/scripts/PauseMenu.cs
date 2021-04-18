@@ -10,8 +10,8 @@ public class PauseMenu : MonoBehaviour {
     public GameObject player;
     public AudioSource audioSource;
     public AudioSource pauseMusic;
+    public AudioSource playerSource;
 
-    public GameObject guns;
 
     void Start()
     {
@@ -34,8 +34,8 @@ public class PauseMenu : MonoBehaviour {
         Time.timeScale = 1f;
         gamePaused = false;
         audioSource.Play();
+        playerSource.Play();
         player.gameObject.SetActive(true);
-        guns.gameObject.SetActive(true);
         Cursor.visible = false;
         pauseMusic.Stop();
     }
@@ -43,9 +43,9 @@ public class PauseMenu : MonoBehaviour {
         pauseMenu.SetActive (true);
         Time.timeScale = 0f;
         player.gameObject.SetActive(false);
-        guns.gameObject.SetActive(false);
         gamePaused = true;
         audioSource.Pause();
+        playerSource.Pause();
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         pauseMusic.Play();

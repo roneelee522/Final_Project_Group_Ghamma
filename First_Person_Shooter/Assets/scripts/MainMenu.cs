@@ -20,8 +20,8 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("NarrativeScene");
     }
-    public void LoadGame(string SampleScene)
+   public void LoadLevel(int SceneIndex)
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene(SceneIndex);
     }
 }

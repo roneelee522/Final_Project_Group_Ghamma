@@ -325,7 +325,7 @@ public class PlayerMovement : MonoBehaviour
         {
             jumpHeight = 25f;
         }
-        if (collision.gameObject.tag == "Explosion")
+        if (collision.gameObject.tag == "Explosion" && health > 0)
         {
             health = health - 1;
             PlaySound(hurtSound);
@@ -347,12 +347,13 @@ public class PlayerMovement : MonoBehaviour
     }
      void OnCollisionEnter(Collision collider)
     {
-        if(collider.gameObject.tag == "Bullet")
+        if(collider.gameObject.tag == "Bullet" && health > 0)
         {
             health -= 1;
             Debug.Log("Hi There");
             PlaySound(hurtSound);
         }
+
     }
     IEnumerator WinExit()
     {

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Weapon_Switcher : MonoBehaviour
 {
-    public int selectedWeapon = 0;
+    public int selectedWeapon;
     public AudioSource audioSource;
     public AudioClip switchSound;
 

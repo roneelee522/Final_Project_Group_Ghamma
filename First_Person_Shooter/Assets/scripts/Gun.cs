@@ -24,19 +24,23 @@ public ParticleSystem ShotFlash;
 public GameObject impactEffect;
 private float nextTimeToFire = 0f;
 public Animator animator;
-public int maxmagAmmo = 10;
+public int maxmagAmmo = 35;
 public int ammo;
 public TMP_Text currentAmmoText;
 public TMP_Text invAmmoText;
 
     void Start ()
+
     {
+        currentAmmoText = GameObject.Find("Ammo Text").GetComponent<TMP_Text>();
+
+invAmmoText = GameObject.Find("Ammo Text Static").GetComponent<TMP_Text>();
         ammo = maxmagAmmo;
-        pistolAmmo = 10;
-        pistolinvAmmo = 40;
-        machineAmmo = 35;
-        machineinvAmmo = 70;
+machineinvAmmo = 70;
+
+
     
+
     }
     void OnEnable ()
     {

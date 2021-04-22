@@ -11,7 +11,7 @@ public class Machine_ammo : MonoBehaviour
  void OnTriggerEnter(Collider other)
  {
      ammoBox.SetActive(false);
-     script.machineinvAmmo += 70;
+     script.pistolinvAmmo += 70;
  }
 
 }

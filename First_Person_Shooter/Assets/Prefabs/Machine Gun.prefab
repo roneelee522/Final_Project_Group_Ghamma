@@ -24246,14 +24246,14 @@ MonoBehaviour:
   machineAmmo: 35
   machineinvAmmo: 70
   script: {fileID: 7796052264053416213, guid: de70b88992c11ca4fa188125080344e5, type: 3}
-  damage: 50
+  damage: 100
   range: 100
   fireRate: 10
   shootSound: {fileID: 8300000, guid: 760740677f5de2c449ebdf9f82777e43, type: 3}
   reloadSound: {fileID: 8300000, guid: ce2e2d84cd4c2634eb2fb97359c38164, type: 3}
   audioSource: {fileID: 7550043170119485547}
   reloadTime: 1
-  fpsCam: {fileID: 2311825338314785799, guid: 4d6b1bce0ae4a1f45be0fdd485edac3b, type: 3}
+  fpsCam: {fileID: 0}
   ShotFlash: {fileID: 2569366404094239376}
   impactEffect: {fileID: 4430929438360301236, guid: 915ff74ff8423ec48b2ff68a7f7a3295,
     type: 3}

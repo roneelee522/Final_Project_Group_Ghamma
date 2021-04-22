@@ -32,6 +32,7 @@ public TMP_Text invAmmoText;
     void Start ()
 
     {
+        fpsCam = GameObject.Find("Player/Main Camera").GetComponent<Camera>();
         currentAmmoText = GameObject.Find("Ammo Text").GetComponent<TMP_Text>();
 
 invAmmoText = GameObject.Find("Ammo Text Static").GetComponent<TMP_Text>();

@@ -36821,7 +36821,6 @@ MonoBehaviour:
   health: 0
   checkpoint: {fileID: 1030682996}
   distanceText: {fileID: 638863831}
-  playerSource: {fileID: 1842420100}
 --- !u!82 &1842420099
 AudioSource:
   m_ObjectHideFlags: 0
@@ -43064,6 +43063,11 @@ PrefabInstance:
       propertyPath: reloadSound
       value: 
       objectReference: {fileID: 8300000, guid: ce2e2d84cd4c2634eb2fb97359c38164, type: 3}
+    - target: {fileID: 2311825339799134904, guid: 4d6b1bce0ae4a1f45be0fdd485edac3b,
+        type: 3}
+      propertyPath: fpsCam
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2506193198802556472, guid: 4d6b1bce0ae4a1f45be0fdd485edac3b,
         type: 3}
       propertyPath: currentAmmoText

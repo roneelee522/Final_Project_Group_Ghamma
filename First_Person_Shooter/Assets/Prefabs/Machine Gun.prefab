@@ -24250,7 +24250,7 @@ MonoBehaviour:
   range: 100
   fireRate: 10
   shootSound: {fileID: 8300000, guid: 760740677f5de2c449ebdf9f82777e43, type: 3}
-  reloadSound: {fileID: 8300000, guid: af263531188837046a4dcf78f724f0fd, type: 3}
+  reloadSound: {fileID: 8300000, guid: ce2e2d84cd4c2634eb2fb97359c38164, type: 3}
   audioSource: {fileID: 7550043170119485547}
   reloadTime: 1
   fpsCam: {fileID: 2311825338314785799, guid: 4d6b1bce0ae4a1f45be0fdd485edac3b, type: 3}

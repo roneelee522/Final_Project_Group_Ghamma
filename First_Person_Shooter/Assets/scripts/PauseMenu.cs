@@ -36,6 +36,7 @@ public class PauseMenu : MonoBehaviour {
         audioSource.Play();
         playerSource.Play();
         player.gameObject.SetActive(true);
+        Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         pauseMusic.Stop();
     }
@@ -59,8 +60,8 @@ public class PauseMenu : MonoBehaviour {
         SceneManager.LoadScene ("MainMenu");
         Time.timeScale = 1f;
     }
-    public void RestartScene (string SampleScene) {
-        SceneManager.LoadScene ("SampleScene");
+    public void RestartScene (int sceneIndex) {
+        SceneManager.LoadScene (sceneIndex);
         Time.timeScale = 1f;
     }
 }

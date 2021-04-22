@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController controller;
     public float speed = 12f;
     public AudioSource audioSource;
-    public AudioClip jumpSound, pickUpSound, healthSound, hurtSound, crateSound,jumpPadSound;
+    public AudioClip jumpSound, pickUpSound, healthSound, hurtSound, crateSound,jumpPadSound, weaponPickUp;
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
     public Transform groundCheck;
@@ -20,14 +20,18 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] int maxStamina = 100;
     [SerializeField] float currentStamina;
     private Coroutine regen;
+    public GameObject weapon;
     Vector3 velocity;
     private bool isMoving;
     public AudioSource moving;
     bool isGrounded;
     private int redKey, yellowKey, blueKey;
-    public GameObject key1, key2, key3, bar1, bar2, bar3, bar4, bar5, bar6, bar7;
+    public GameObject key1, key2, key3, bar1, bar2, bar3, bar4, bar5, bar6, bar7, deathTransition, canvasStuff;
     public int health;
-    public TMP_Text directiveText;
+    public Transform checkpoint;
+    public TMP_Text distanceText;
+
+    private float distance;
     void Start()
     {
         health = 7;
@@ -35,8 +39,9 @@ public class PlayerMovement : MonoBehaviour
         currentStamina = maxStamina;
         staminaBarShift.maxValue = maxStamina;
         staminaBarShift.value = maxStamina;
-        redKey = 0; blueKey = 0; yellowKey = 0;
-        directiveText.text = "Find all KeyCards to Escape";
+        redKey = 1; blueKey = 1; yellowKey = 1;
+        distanceText.text = "Find all KeyCards";
+        deathTransition.SetActive(false);
     }
         void Awake()
         {
@@ -111,15 +116,14 @@ public class PlayerMovement : MonoBehaviour
             key3.SetActive(false);
    velocity.y += gravity * Time.deltaTime;
    controller.Move(velocity * Time.deltaTime);
-   if(redKey == 1 && blueKey == 1 && yellowKey == 1)
-        {
-            directiveText.text = "Find the Exit";
-        }
     if (health == 0)
         {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            SceneManager.LoadScene("LoseScreen");
+            canvasStuff.SetActive(false);
+            deathTransition.SetActive(true);
+            weapon.SetActive(false);
+            PlayerMovement pm = GetComponent<PlayerMovement>();
+            pm.enabled = false;
+            StartCoroutine("WaitExit");
         }
         if (health == 0)
         {
@@ -202,6 +206,11 @@ public class PlayerMovement : MonoBehaviour
             bar6.SetActive(true);
             bar7.SetActive(true);
         }
+        if (blueKey == 1 && redKey == 1 && yellowKey == 1)
+        {
+            distance = (checkpoint.transform.position - transform.position).magnitude;
+            distanceText.text = "Distance to Exit: " + distance.ToString("F1") + "M";
+        }
     }
     void FixedUpdate()
     {
@@ -222,6 +231,14 @@ public class PlayerMovement : MonoBehaviour
             staminaBarShift.value = currentStamina;
             speed = 7f;
         }
+    }
+
+    IEnumerator WaitExit()
+    {
+        yield return new WaitForSeconds(1.5f);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        SceneManager.LoadScene("LoseScreen");
     }
     public void UseStamina(float amount)
     {
@@ -250,6 +267,24 @@ public class PlayerMovement : MonoBehaviour
     }
     void OnTriggerEnter(Collider collision)
     {
+        if(collision.gameObject.tag == "ExitDoor")
+        {
+            if(redKey == 1 && blueKey == 1 && yellowKey == 1)
+            {
+                Debug.Log("Work");
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+                canvasStuff.SetActive(false);
+                weapon.SetActive(false);
+                PlayerMovement pm = GetComponent<PlayerMovement>();
+                pm.enabled = false;
+                StartCoroutine("WinExit");
+            }
+        }
+        if(collision.gameObject.tag == "WeaponPickUp")
+        {
+            PlaySound(weaponPickUp);
+        }
         if(collision.gameObject.tag == "redKey")
         {
             if(redKey < 1)
@@ -286,19 +321,6 @@ public class PlayerMovement : MonoBehaviour
                 Destroy(collision.gameObject);
             }
         }
-        if(collision.gameObject.tag == "ExitDoor")
-        {
-            if(redKey == 1 && blueKey == 1 && yellowKey == 1)
-            {
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
-                SceneManager.LoadScene("WinScreen");
-            }
-            else
-                {
-                directiveText.text = "Find all the KeyCards!";
-            }
-        }
         if (collision.gameObject.tag == "JumpPad")
         {
             jumpHeight = 25f;
@@ -316,7 +338,6 @@ public class PlayerMovement : MonoBehaviour
     }
     void OnTriggerExit(Collider collision)
     {
-        directiveText.text = "Find all KeyCards to Escape";
 
         if (collision.gameObject.tag == "JumpPad")
         {
@@ -332,7 +353,10 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Hi There");
             PlaySound(hurtSound);
         }
-      
-
+    }
+    IEnumerator WinExit()
+    {
+        yield return new WaitForSeconds(0.8f);
+        SceneManager.LoadScene("WinScreen");
     }
 }

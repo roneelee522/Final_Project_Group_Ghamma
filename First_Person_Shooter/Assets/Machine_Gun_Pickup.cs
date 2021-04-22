@@ -16,8 +16,7 @@ void OnTriggerEnter(Collider other)
     pistol.SetActive(false);
     GameObject childGameObject = Instantiate(prefab, parent);
     script.selectedWeapon = 1;
-
-    script2.currentAmmoText.text = script2.machineAmmo.ToString ();
+        script2.currentAmmoText.text = script2.machineAmmo.ToString ();
     script2.invAmmoText.text = script2.machineinvAmmo.ToString ();
 
 }

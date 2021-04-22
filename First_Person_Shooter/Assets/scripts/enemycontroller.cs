@@ -14,9 +14,6 @@ public class enemycontroller : MonoBehaviour
     public float health;
     CapsuleCollider enemyCol;
 
-
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +31,7 @@ public class enemycontroller : MonoBehaviour
 
         if (Vector3.Distance(playerDistance.position, transform.position) <= explosionRange)
         {
+
             Explode();
         }
 

@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     public int health;
     public Transform checkpoint;
     public TMP_Text distanceText;
+    public GameObject transition;
 
     private float distance;
     void Start()
@@ -42,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
         redKey = 0; blueKey = 0; yellowKey = 0;
         distanceText.text = "Find all KeyCards";
         deathTransition.SetActive(false);
+        transition.SetActive(false);
     }
         void Awake()
         {
@@ -337,6 +339,7 @@ public class PlayerMovement : MonoBehaviour
             if(redKey == 1 && blueKey == 1 && yellowKey == 1)
             {
                 Debug.Log("Work");
+                transition.SetActive(true);
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
                 canvasStuff.SetActive(false);

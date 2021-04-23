@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
         currentStamina = maxStamina;
         staminaBarShift.maxValue = maxStamina;
         staminaBarShift.value = maxStamina;
-        redKey = 1; blueKey = 1; yellowKey = 1;
+        redKey = 0; blueKey = 0; yellowKey = 0;
         distanceText.text = "Find all KeyCards";
         deathTransition.SetActive(false);
     }

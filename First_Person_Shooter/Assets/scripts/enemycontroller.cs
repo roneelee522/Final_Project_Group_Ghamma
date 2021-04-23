@@ -13,12 +13,15 @@ public class enemycontroller : MonoBehaviour
     public float explosionRange;
     public float health;
     CapsuleCollider enemyCol;
+    private Animator animator = null;
 
     // Start is called before the first frame update
     void Start()
     {
         nav = GetComponent<NavMeshAgent>();
+        animator = GetComponentInChildren<Animator>();
         enemyCol = GetComponent<CapsuleCollider>();
+        animator.SetBool("isRunning", false);
     }
 
     // Update is called once per frame
@@ -27,6 +30,7 @@ public class enemycontroller : MonoBehaviour
         if (Vector3.Distance(playerDistance.position, transform.position) <= range)
         {
             nav.SetDestination(target.position);
+            animator.SetBool("isRunning", true);
         }
 
         if (Vector3.Distance(playerDistance.position, transform.position) <= explosionRange)
@@ -39,7 +43,7 @@ public class enemycontroller : MonoBehaviour
 
     void Explode()
     {
-        enemyCol.radius = 5.0f;
+        enemyCol.radius = 12.0f;
         Instantiate(enemyExplosion, transform.position, transform.rotation);
         Destroy(gameObject, 0.2f);
     }

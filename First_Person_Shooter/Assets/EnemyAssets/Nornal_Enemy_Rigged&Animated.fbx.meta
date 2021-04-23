@@ -29,7 +29,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -49,7 +49,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -78,7 +78,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -137,7 +137,112 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: Nornal_Enemy_Rigged&Animated(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: group1
+      parentName: Nornal_Enemy_Rigged&Animated(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.020056494, y: 0.020056494, z: 0.020056494}
+    - name: Body_Bomb_lo
+      parentName: group1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Tech_lo
+      parentName: group1
+      position: {x: 0.054714877, y: 17.728588, z: 1.2153089}
+      rotation: {x: 0.4797079, y: 0.4797079, z: 0.51950014, w: 0.51950014}
+      scale: {x: 6.9441814, y: 0.6014265, z: 6.9441814}
+    - name: Teeth_Bomb_lo
+      parentName: group1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: joint1
+      parentName: Nornal_Enemy_Rigged&Animated(Clone)
+      position: {x: -0.0020323081, y: 0.3502379, z: 0}
+      rotation: {x: 8.6597505e-17, y: -1.6816024e-18, z: -0.7205668, w: 0.69338554}
+      scale: {x: 1, y: 0.9999999, z: 1}
+    - name: joint2
+      parentName: joint1
+      position: {x: -0.04451258, y: -1.9984014e-17, z: -5.4512187e-18}
+      rotation: {x: -4.2658277e-17, y: -4.392687e-17, z: -0.7177078, w: 0.69634444}
+      scale: {x: 1.0000013, y: 1.0000002, z: 1}
+    - name: joint3
+      parentName: joint2
+      position: {x: -0.038605016, y: -7.2719605e-17, z: 1.4281944e-19}
+      rotation: {x: 3.1696734e-17, y: 1.1383085e-16, z: -0.5935755, w: 0.8047784}
+      scale: {x: 1.0000011, y: 1, z: 1.0000007}
+    - name: joint9
+      parentName: joint3
+      position: {x: -0.055479705, y: 0.002231194, z: -5.4656265e-18}
+      rotation: {x: 1.3963133e-17, y: 6.2688913e-18, z: -0.15878254, w: 0.9873136}
+      scale: {x: 1.0000004, y: 1, z: 1}
+    - name: joint10
+      parentName: joint9
+      position: {x: -0.056627195, y: -0.004186152, z: -0.012111992}
+      rotation: {x: -0.30338234, y: -0.95286894, z: -3.0648967e-17, w: 6.219004e-17}
+      scale: {x: 1, y: 1, z: 1.0000002}
+    - name: joint4
+      parentName: joint2
+      position: {x: 0.045084644, y: 0.0030730707, z: 2.0937999e-19}
+      rotation: {x: 0.6641099, y: -0.74763507, z: -1.2115883e-17, w: -5.446555e-17}
+      scale: {x: 0.9999993, y: 1, z: 1}
+    - name: joint11
+      parentName: joint4
+      position: {x: -0.04805141, y: -1.7763568e-17, z: -1.1361138e-18}
+      rotation: {x: 9.926167e-24, y: -3.3087225e-24, z: -0.12346333, w: 0.99234915}
+      scale: {x: 0.9999999, y: 1, z: 1}
+    - name: joint12
+      parentName: joint11
+      position: {x: -0.06443345, y: 7.6681496e-17, z: 0.015838759}
+      rotation: {x: 0.3245972, y: 0.94585234, z: 6.5582585e-17, w: -4.223112e-17}
+      scale: {x: 1.000001, y: 1.0000004, z: 1.0000007}
+    - name: joint5
+      parentName: joint2
+      position: {x: 0.00457188, y: -0.052130785, z: -6.3981796e-18}
+      rotation: {x: 4.074157e-17, y: 4.3226474e-17, z: 0.7280361, w: 0.6855389}
+      scale: {x: 1.0000018, y: 1.0000017, z: 1.0000036}
+    - name: joint6
+      parentName: joint5
+      position: {x: -0.051771592, y: -3.8857806e-18, z: -6.337358e-18}
+      rotation: {x: -4.464769e-17, y: -3.9281097e-17, z: -0.66783065, w: 0.7443132}
+      scale: {x: 1.0000012, y: 0.9999993, z: 1.000002}
+    - name: joint7
+      parentName: joint6
+      position: {x: -0.026680976, y: -7.0310145e-18, z: -4.4984207e-19}
+      rotation: {x: -6.0050136e-18, y: 4.198999e-17, z: 0.086479306, w: 0.9962537}
+      scale: {x: 1.0000001, y: 0.9999993, z: 0.9999989}
+    - name: joint13
+      parentName: joint7
+      position: {x: -0.07623994, y: -3.8857806e-18, z: -9.336409e-18}
+      rotation: {x: 0.0035980754, y: 0.013748472, z: -0.099186756, w: 0.99496734}
+      scale: {x: 0.99999934, y: 0.99999934, z: 1}
+    - name: joint14
+      parentName: joint13
+      position: {x: -0.11540262, y: 1.5624941e-16, z: -0.0047145644}
+      rotation: {x: 4.1711635e-17, y: 4.1276475e-17, z: -0.7030507, w: 0.7111398}
+      scale: {x: 1.0000018, y: 1.0000007, z: 1}
+    - name: joint8
+      parentName: joint6
+      position: {x: 0.02527208, y: -0.0051953057, z: -2.04095e-19}
+      rotation: {x: -0.18528798, y: -0.98268425, z: -1.05228035e-16, w: -6.7227476e-17}
+      scale: {x: 1.0000001, y: 0.99999976, z: 0.99999964}
+    - name: joint15
+      parentName: joint8
+      position: {x: -0.07750926, y: -3.5527136e-17, z: 9.45446e-18}
+      rotation: {x: -0.0045447717, y: -0.017138375, z: -0.09967778, w: 0.9948618}
+      scale: {x: 1.0000011, y: 1.000001, z: 1}
+    - name: joint16
+      parentName: joint15
+      position: {x: -0.11354886, y: 1.7963598e-17, z: 0.005693762}
+      rotation: {x: 0.71459013, y: 0.69954354, z: -1.6889832e-18, w: -1.7253193e-18}
+      scale: {x: 1.0000031, y: 1.0000006, z: 1.0000045}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -148,7 +253,7 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2

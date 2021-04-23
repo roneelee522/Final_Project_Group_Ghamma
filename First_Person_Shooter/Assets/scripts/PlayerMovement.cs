@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource moving;
     bool isGrounded;
     private int redKey, yellowKey, blueKey;
-    public GameObject key1, key2, key3, bar1, bar2, bar3, bar4, bar5, bar6, bar7, deathTransition, canvasStuff;
+    public GameObject key1, key2, key3, bar1, bar2, bar3, bar4, bar5, bar6, bar7, bar8, bar9, bar10, deathTransition, canvasStuff;
     public int health;
     public Transform checkpoint;
     public TMP_Text distanceText;
@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     private float distance;
     void Start()
     {
-        health = 7;
+        health = 10;
         speed = 7f;
         currentStamina = maxStamina;
         staminaBarShift.maxValue = maxStamina;
@@ -51,10 +51,13 @@ public class PlayerMovement : MonoBehaviour
             bar1 = GameObject.Find("GreenBar1");
             bar2 = GameObject.Find("GreenBar2");
             bar3 = GameObject.Find("GreenBar3");
-            bar4 = GameObject.Find("YellowBar1");
-            bar5 = GameObject.Find("YellowBar2");
-            bar6 = GameObject.Find("RedBar1");
-            bar7 = GameObject.Find("RedBar2");
+            bar4 = GameObject.Find("GreenBar4");
+            bar5 = GameObject.Find("GreenBar5");
+            bar6 = GameObject.Find("YellowBar6");
+            bar7 = GameObject.Find("YellowBar7");
+            bar8 = GameObject.Find("YellowBar8");
+            bar9 = GameObject.Find("RedBar9");
+            bar10 = GameObject.Find("RedBar10");
         }
 
      public void PlaySound(AudioClip clip)
@@ -134,6 +137,9 @@ public class PlayerMovement : MonoBehaviour
             bar5.SetActive(false);
             bar6.SetActive(false);
             bar7.SetActive(false);
+            bar8.SetActive(false);
+            bar9.SetActive(false);
+            bar10.SetActive(false);
         }
         if (health == 1)
         {
@@ -143,7 +149,10 @@ public class PlayerMovement : MonoBehaviour
             bar4.SetActive(false);
             bar5.SetActive(false);
             bar6.SetActive(false);
-            bar7.SetActive(true);
+            bar7.SetActive(false);
+            bar8.SetActive(false);
+            bar9.SetActive(false);
+            bar10.SetActive(true);
         }
         if (health == 2)
         {
@@ -152,10 +161,52 @@ public class PlayerMovement : MonoBehaviour
             bar3.SetActive(false);
             bar4.SetActive(false);
             bar5.SetActive(false);
-            bar6.SetActive(true);
-            bar7.SetActive(true);
+            bar6.SetActive(false);
+            bar7.SetActive(false);
+            bar8.SetActive(false);
+            bar9.SetActive(true);
+            bar10.SetActive(true);
         }
         if (health == 3)
+        {
+            bar1.SetActive(false);
+            bar2.SetActive(false);
+            bar3.SetActive(false);
+            bar4.SetActive(false);
+            bar5.SetActive(false);
+            bar6.SetActive(false);
+            bar7.SetActive(false);
+            bar8.SetActive(true);
+            bar9.SetActive(true);
+            bar10.SetActive(true);
+        }
+        if (health == 4)
+        {
+            bar1.SetActive(false);
+            bar2.SetActive(false);
+            bar3.SetActive(false);
+            bar4.SetActive(false);
+            bar5.SetActive(false);
+            bar6.SetActive(false);
+            bar7.SetActive(true);
+            bar8.SetActive(true);
+            bar9.SetActive(true);
+            bar10.SetActive(true);
+        }
+        if (health == 5)
+        {
+            bar1.SetActive(false);
+            bar2.SetActive(false);
+            bar3.SetActive(false);
+            bar4.SetActive(false);
+            bar5.SetActive(false);
+            bar6.SetActive(true);
+            bar7.SetActive(true);
+            bar8.SetActive(true);
+            bar9.SetActive(true);
+            bar10.SetActive(true);
+        }
+        if (health == 6)
         {
             bar1.SetActive(false);
             bar2.SetActive(false);
@@ -164,8 +215,11 @@ public class PlayerMovement : MonoBehaviour
             bar5.SetActive(true);
             bar6.SetActive(true);
             bar7.SetActive(true);
+            bar8.SetActive(true);
+            bar9.SetActive(true);
+            bar10.SetActive(true);
         }
-        if (health == 4)
+        if (health == 7)
         {
             bar1.SetActive(false);
             bar2.SetActive(false);
@@ -174,8 +228,11 @@ public class PlayerMovement : MonoBehaviour
             bar5.SetActive(true);
             bar6.SetActive(true);
             bar7.SetActive(true);
+            bar8.SetActive(true);
+            bar9.SetActive(true);
+            bar10.SetActive(true);
         }
-        if (health == 5)
+         if (health == 8)
         {
             bar1.SetActive(false);
             bar2.SetActive(false);
@@ -184,8 +241,11 @@ public class PlayerMovement : MonoBehaviour
             bar5.SetActive(true);
             bar6.SetActive(true);
             bar7.SetActive(true);
+            bar8.SetActive(true);
+            bar9.SetActive(true);
+            bar10.SetActive(true);
         }
-        if (health == 6)
+         if (health == 9)
         {
             bar1.SetActive(false);
             bar2.SetActive(true);
@@ -194,9 +254,11 @@ public class PlayerMovement : MonoBehaviour
             bar5.SetActive(true);
             bar6.SetActive(true);
             bar7.SetActive(true);
-            Debug.Log("Taking Hit");
+            bar8.SetActive(true);
+            bar9.SetActive(true);
+            bar10.SetActive(true);
         }
-        if (health == 7)
+         if (health == 10)
         {
             bar1.SetActive(true);
             bar2.SetActive(true);
@@ -205,6 +267,9 @@ public class PlayerMovement : MonoBehaviour
             bar5.SetActive(true);
             bar6.SetActive(true);
             bar7.SetActive(true);
+            bar8.SetActive(true);
+            bar9.SetActive(true);
+            bar10.SetActive(true);
         }
         if (blueKey == 1 && redKey == 1 && yellowKey == 1)
         {
@@ -314,7 +379,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if(collision.gameObject.tag =="HealthPickUp")
         {
-           if (health < 7)
+           if (health < 10)
                 {
                 health += 1;
                 PlaySound(healthSound);

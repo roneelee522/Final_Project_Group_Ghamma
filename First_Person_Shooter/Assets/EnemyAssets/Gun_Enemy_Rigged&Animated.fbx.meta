@@ -21,7 +21,8 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    rigImportErrors: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'LeftLowerLeg' not found\n"
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -29,7 +30,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -49,7 +50,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -78,7 +79,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -113,7 +114,7 @@ ModelImporter:
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
-    skinWeightsMode: 0
+    skinWeightsMode: 1
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
     meshOptimizationFlags: -1
@@ -137,7 +138,102 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: Gun_Enemy_Rigged&Animated(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _lo
+      parentName: Gun_Enemy_Rigged&Animated(Clone)
+      position: {x: -0, y: 0.0015124077, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.0069764303, y: 0.0069764303, z: 0.0069764303}
+    - name: Guns_lo
+      parentName: _lo
+      position: {x: -2.0030432, y: 16.858316, z: -1.312734}
+      rotation: {x: 0.0013518372, y: 0.99861324, z: 0.010036777, w: -0.05166322}
+      scale: {x: 22.094406, y: 22.094406, z: 22.094406}
+    - name: Tech_Gun_lo
+      parentName: _lo
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Teeth_Gun_lo
+      parentName: _lo
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Body_Gun_lo
+      parentName: _lo
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: joint1
+      parentName: Gun_Enemy_Rigged&Animated(Clone)
+      position: {x: 0.0003002344, y: 0.12578504, z: 0}
+      rotation: {x: -0.7202765, y: 0.6936089, z: -0.0075078383, w: 0.007229868}
+      scale: {x: 1.0000019, y: 1.0000019, z: 1}
+    - name: joint2
+      parentName: joint1
+      position: {x: -0.016984772, y: -8.3266725e-19, z: 0}
+      rotation: {x: 0.65180624, y: 0.7583856, z: 8.634934e-17, w: -6.5260878e-18}
+      scale: {x: 1.0000036, y: 1.0000006, z: 1.0000029}
+    - name: joint3
+      parentName: joint2
+      position: {x: -0.013994456, y: -0.0016435324, z: 0.0017219244}
+      rotation: {x: 0.0009897553, y: -0.0015079974, z: -0.59493047, w: 0.80377513}
+      scale: {x: 1.0000021, y: 1.0000024, z: 1.0000039}
+    - name: joint6
+      parentName: joint3
+      position: {x: -0.016963601, y: -6.661338e-18, z: -8.2651913e-19}
+      rotation: {x: -0.5005502, y: -0.86570746, z: -2.627386e-17, w: 5.0479097e-17}
+      scale: {x: 0.9999966, y: 1.0000024, z: 0.9999989}
+    - name: joint4
+      parentName: joint2
+      position: {x: 0.013368105, y: 0.0014829409, z: 0.0028700924}
+      rotation: {x: 0.5734966, y: -0.74242735, z: -0.29496095, w: 0.1813873}
+      scale: {x: 1.0000027, y: 1.0000024, z: 1.0000026}
+    - name: joint7
+      parentName: joint4
+      position: {x: -0.01455532, y: 0.0013123453, z: 0.0034297747}
+      rotation: {x: 0.47125328, y: 0.881998, z: 1.9744398e-17, w: -5.887513e-17}
+      scale: {x: 0.99999887, y: 1.0000031, z: 1.0000021}
+    - name: joint5
+      parentName: joint2
+      position: {x: 0.003959088, y: -0.036924653, z: 4.8484845e-19}
+      rotation: {x: 1.1183908e-16, y: -8.57634e-19, z: 0.0838336, w: 0.99647975}
+      scale: {x: 1.0000029, y: 1.0000008, z: 1.0000014}
+    - name: joint8
+      parentName: joint5
+      position: {x: -0.0088877035, y: -8.018245e-18, z: -1.0731307e-18}
+      rotation: {x: 0.008076622, y: -0.009043931, z: 0.10923074, w: 0.9939425}
+      scale: {x: 1.000002, y: 1.0000017, z: 1.0000044}
+    - name: joint10
+      parentName: joint8
+      position: {x: -0.026351389, y: 1.9428903e-18, z: 1.7735136e-19}
+      rotation: {x: 0.007340472, y: 0.025650654, z: -0.10067009, w: 0.99456215}
+      scale: {x: 1.0000017, y: 1.0000015, z: 1.0000024}
+    - name: joint11
+      parentName: joint10
+      position: {x: -0.04165162, y: 1.3218084e-16, z: -0.0033304968}
+      rotation: {x: -4.2690487e-17, y: 4.3895696e-17, z: -0.7171658, w: 0.69690263}
+      scale: {x: 1.0000019, y: 1.0000005, z: 1.0000002}
+    - name: joint9
+      parentName: joint5
+      position: {x: 0.008171239, y: -0.00249753, z: 1.0377243e-18}
+      rotation: {x: -0.16393645, y: -0.9863985, z: 0.008349526, w: -0.008555905}
+      scale: {x: 1.0000023, y: 1.0000025, z: 1.0000018}
+    - name: joint12
+      parentName: joint9
+      position: {x: -0.025882246, y: 5.551115e-19, z: -3.775367e-18}
+      rotation: {x: -0.010328237, y: -0.039556235, z: -0.102916785, w: 0.9938495}
+      scale: {x: 1.0000012, y: 1.0000013, z: 1}
+    - name: joint13
+      parentName: joint12
+      position: {x: -0.04087676, y: 7.149132e-17, z: 0.004241484}
+      rotation: {x: 0.6944642, y: 0.71952724, z: 4.9871672e-17, w: -3.696624e-17}
+      scale: {x: 1.0000019, y: 1.0000006, z: 1.0000007}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -148,7 +244,7 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2

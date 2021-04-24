@@ -360,6 +360,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gun_Enemy_Rigged&Animated
       objectReference: {fileID: 0}
+    - target: {fileID: 3204065681543409984, guid: e2840162503475b4b9c6cd360fbea8fc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e20da8ec268737b4b97b63c53f9ab2bf, type: 2}
+    - target: {fileID: 3315918710717256344, guid: e2840162503475b4b9c6cd360fbea8fc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 92d757efc9a2e3949b5e493f90b69d05, type: 2}
+    - target: {fileID: 5587421413133892514, guid: e2840162503475b4b9c6cd360fbea8fc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 146149d95abb5a14d936245f83eb7af5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2840162503475b4b9c6cd360fbea8fc, type: 3}
 --- !u!4 &8513905996302706072 stripped

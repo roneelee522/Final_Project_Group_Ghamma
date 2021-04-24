@@ -26,4 +26,8 @@ float xRotation = 0f;
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
     }
+    public void ChangeSensitivity(float _sensitvity)
+    {
+        mouseSensitivity = _sensitvity;
+    }
 }
